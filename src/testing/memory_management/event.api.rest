@@ -1,0 +1,30 @@
+### POST EVENT 
+POST http://localhost:3000/api/memory_management/event
+Content-Type: application/json
+
+{
+    "idtrabajo": "467068e4-b39e-11eb-beed-842afd1385ba",
+    "nombre": "testingEventUsernamexxx",
+    "tipo": "testingEventTypexxx"
+}
+
+### GET EVENTS
+GET http://localhost:3000/api/memory_management/event
+
+### GET EVENT
+GET http://localhost:3000/api/memory_management/event/05028524-b3a0-11eb-beed-842afd1385ba
+
+### UPDATE EVENT
+PUT http://localhost:3000/api/memory_management/event/05028524-b3a0-11eb-beed-842afd1385ba
+Content-Type: application/json
+
+{
+    "idtrabajo": "467068e4-b39e-11eb-beed-842afd1385ba",
+    "nombre": "testingUpdatedEventUsernamexxx",
+    "tipo": "testingUpdatedEventTypexxx"
+}
+### DELETE EVENTS
+DELETE http://localhost:3000/api/memory_management/event
+
+### DELETE EVENT
+DELETE http://localhost:3000/api/memory_management/event/05028524-b3a0-11eb-beed-842afd1385ba

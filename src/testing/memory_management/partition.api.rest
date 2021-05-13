@@ -1,0 +1,34 @@
+### POST PARTITION 
+POST http://localhost:3000/api/memory_management/partition
+Content-Type: application/json
+
+{
+    "idmemoria" : "2352b556-b38c-11eb-beed-842afd1385ba",
+    "posicion"  : 1,
+    "tamanho"   : 1,
+    "ocupado"   : 1,
+    "estado"    : "estate"
+}
+
+### GET PARTITIONS
+GET http://localhost:3000/api/memory_management/partition
+
+### GET PARTITION
+GET http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba
+
+### UPDATE PARTITION
+PUT http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba
+Content-Type: application/json
+
+{
+    "idmemoria" : "2352b556-b38c-11eb-beed-842afd1385ba",
+    "posicion"  : 2,
+    "tamanho"   : 2,
+    "ocupado"   : 2,
+    "estado"    : "updatedEstate"
+}
+### DELETE PARTITIONS
+DELETE http://PARTITIONShost:3000/api/memory_management/partition
+
+### DELETE PARTITION
+DELETE http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba

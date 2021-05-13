@@ -1,0 +1,34 @@
+### POST WORK 
+POST http://localhost:3000/api/memory_management/work
+Content-Type: application/json
+
+{
+    "idparticion": "4d9cd747-b394-11eb-beed-842afd1385ba",
+    "nombre": "testingNameWork",
+    "peso": 1,
+    "estado": 0
+}
+
+### GET WORKS
+GET http://localhost:3000/api/memory_management/work
+
+### GET WORK
+GET http://localhost:3000/api/memory_management/work
+
+### UPDATE WORK
+PUT http://localhost:3000/api/memory_management/work/43bc3871-b39e-11eb-beed-842afd1385ba
+Content-Type: application/json
+
+{
+    "idparticion": "4d9cd747-b394-11eb-beed-842afd1385ba",
+    "nombre": "testingUpdatedNameWork",
+    "peso": 2,
+    "estado": 1
+}
+
+### DELETE WORKS
+DELETE http://localhost:3000/api/memory_management/work
+
+
+### DELETE WORK
+DELETE http://localhost:3000/api/memory_management/work/43bc3871-b39e-11eb-beed-842afd1385ba

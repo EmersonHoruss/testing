@@ -1,0 +1,31 @@
+### POST USER 
+POST http://localhost:3000/api/user/user
+Content-Type: application/json
+
+{
+    "nombre": "testingUserNombrexxx",
+    "username": "testingUserUsernamexxx",
+    "correo": "testingUserCorreoxxx"
+}
+
+### GET USERS
+GET http://localhost:3000/api/user/user
+
+### GET USER
+GET http://localhost:3000/api/user/user/24749441-b36f-11eb-beed-842afd1385ba
+
+### UPDATE USER
+PUT http://localhost:3000/api/user/user/3583e818-b37f-11eb-beed-842afd1385ba
+Content-Type: application/json
+
+{
+    "nombre": "updatedUser",
+    "username": "updatedUser",
+    "correo": "UpdatedUser"
+}
+### DELETE USERS
+DELETE http://localhost:3000/api/user/user
+
+### DELETE USER
+DELETE http://localhost:3000/api/user/user/c1053cf5-b385-11eb-beed-842afd1385ba
+

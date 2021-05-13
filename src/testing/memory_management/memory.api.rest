@@ -1,0 +1,30 @@
+### POST  MEMORY
+POST http://localhost:3000/api/memory_management/memory
+Content-Type: application/json
+
+{
+    "idusuario": "24749441-b36f-11eb-beed-842afd1385ba",
+    "nombre": "testingNameMemory",
+    "descripcion": "testingDescriptionMemory"
+}
+
+### GET MEMORIES
+GET http://localhost:3000/api/memory_management/memory
+
+### GET MEMORY
+GET http://localhost:3000/api/memory_management/memory/b3404e0b-b38b-11eb-beed-842afd1385ba
+
+### UPDATE MEMORY
+PUT http://localhost:3000/api/memory_management/memory/b3404e0b-b38b-11eb-beed-842afd1385ba
+Content-Type: application/json
+
+{
+    "idusuario": "24749441-b36f-11eb-beed-842afd1385ba",
+    "nombre": "testingUpdateNameMemory",
+    "descripcion": "testingUpdateDescriptionMemory"
+}
+### DELETE MEMORIES
+DELETE http://localhost:3000/api/memory_management/memory
+
+### DELETE MEMORY
+DELETE http://localhost:3000/api/memory_management/memory/af9b6e5d-b38b-11eb-beed-842afd1385ba
