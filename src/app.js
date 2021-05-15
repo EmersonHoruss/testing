@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 //routes
+app.use('/', (req,res)=>{res.send('Api is running correctly')})
 app.use('/api/user/user', require('./routes/user/user'))
 app.use('/api/memory_management/memory', require('./routes/memory_management/memory'))
 app.use('/api/memory_management/partition', require('./routes/memory_management/partition'))
