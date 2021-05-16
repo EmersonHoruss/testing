@@ -1,35 +1,47 @@
 const MemoryCtrl = {};
 const pool = require("../../db");
+const { nanoid } = require("nanoid");
 
 MemoryCtrl.createMemory = async (req, res) => {
-  const { idusuario, nombre, descripcion } = req.body;
+  const { _idUser, _name, _description } = req.body;
   const memory = {
-    idusuario,
-    nombre,
-    descripcion,
+    _id:'',
+    _idUser,
+    _name,
+    _description,
   };
-  await pool.query("INSERT INTO memoria set ? ", [memory]);
+  const ids = JSON.parse(
+    JSON.stringify(await pool.query("SELECT _id FROM TMEMORY"))
+  );
+  if(ids){
+    do {
+      memory._id = nanoid(10);
+    } while (ids.find(e => e._id===memory._id));
+  }else{
+    memory._id = nanoid(10);
+  }
+  await pool.query("INSERT INTO TMEMORY set ? ", [memory]);
   res.send("memory created successfully");
 };
 
 MemoryCtrl.readMemories = async (req, res) => {
-  const memories = await pool.query("SELECT * FROM memoria");
+  const memories = await pool.query("SELECT * FROM TMEMORY");
   res.status(200).json(memories);
 };
 
 MemoryCtrl.readMemory = async (req, res) => {
   const { id } = req.params;
-  const user = await pool.query("SELECT * FROM memoria WHERE idmemoria = ?", [
+  const memory = await pool.query("SELECT * FROM TMEMORY WHERE _id = ?", [
     id,
   ]);
-  res.status(200).json(user);
+  res.status(200).json(memory);
 };
 
 MemoryCtrl.updateMemory = async (req, res) => {
   const { id } = req.params;
-  const { idusuario, nombre, descripcion } = req.body;
-  const updatedMemory = { idusuario, nombre, descripcion };
-  await pool.query("UPDATE memoria set ? WHERE idmemoria = ?", [
+  const { _idUser, _name, _description } = req.body;
+  const updatedMemory = { _idUser, _name, _description };
+  await pool.query("UPDATE TMEMORY set ? WHERE _id = ?", [
     updatedMemory,
     id,
   ]);
@@ -42,7 +54,7 @@ MemoryCtrl.deleteMemories = async (req, res) => {
 
 MemoryCtrl.deleteMemory = async (req, res) => {
   const { id } = req.params;
-  await pool.query("DELETE FROM memoria WHERE idmemoria = ?", [id]);
+  await pool.query("DELETE FROM TMEMORY WHERE _id = ?", [id]);
   res.send("Memory deleted successfully");
 };
 

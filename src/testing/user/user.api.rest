@@ -3,29 +3,32 @@ POST http://localhost:3000/api/user/user
 Content-Type: application/json
 
 {
-    "nombre": "testingUserNombrexxx",
-    "username": "testingUserUsernamexxx",
-    "correo": "testingUserCorreoxxx"
+    "_name": "lord Horus",
+    "_password": "lordhorus123",
+    "_username": "lordHorus",
+    "_mail": "lordHorus@gmail.com"
 }
 
 ### GET USERS
 GET http://localhost:3000/api/user/user
 
 ### GET USER
-GET http://localhost:3000/api/user/user/24749441-b36f-11eb-beed-842afd1385ba
+GET http://localhost:3000/api/user/user/uykME
 
 ### UPDATE USER
-PUT http://localhost:3000/api/user/user/3583e818-b37f-11eb-beed-842afd1385ba
+PUT http://localhost:3000/api/user/user/uykME
 Content-Type: application/json
 
 {
-    "nombre": "updatedUser",
-    "username": "updatedUser",
-    "correo": "UpdatedUser"
+    "_name": "lord Horus updated",
+    "_password": "lordhorus123 updated",
+    "_username": "lordHorus updated",
+    "_mail": "lordHorusupdated@gmail.com"
 }
 ### DELETE USERS
 DELETE http://localhost:3000/api/user/user
 
 ### DELETE USER
-DELETE http://localhost:3000/api/user/user/c1053cf5-b385-11eb-beed-842afd1385ba
+DELETE http://localhost:3000/api/user/user/uykME
 
+### id to test = uykME (got of nanoid(5))

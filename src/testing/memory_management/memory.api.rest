@@ -3,28 +3,28 @@ POST http://localhost:3000/api/memory_management/memory
 Content-Type: application/json
 
 {
-    "idusuario": "24749441-b36f-11eb-beed-842afd1385ba",
-    "nombre": "testingNameMemory",
-    "descripcion": "testingDescriptionMemory"
+    "_idUser": "JCVc8",
+    "_name": "memory 1",
+    "_description": "first memory"
 }
 
 ### GET MEMORIES
 GET http://localhost:3000/api/memory_management/memory
 
 ### GET MEMORY
-GET http://localhost:3000/api/memory_management/memory/b3404e0b-b38b-11eb-beed-842afd1385ba
+GET http://localhost:3000/api/memory_management/memory/99FT_pokaC
 
 ### UPDATE MEMORY
-PUT http://localhost:3000/api/memory_management/memory/b3404e0b-b38b-11eb-beed-842afd1385ba
+PUT http://localhost:3000/api/memory_management/memory/99FT_pokaC
 Content-Type: application/json
 
 {
-    "idusuario": "24749441-b36f-11eb-beed-842afd1385ba",
-    "nombre": "testingUpdateNameMemory",
-    "descripcion": "testingUpdateDescriptionMemory"
+    "_idUser": "JCVc8",
+    "_name": "memory 1 updated",
+    "_description": "first memory updated"
 }
 ### DELETE MEMORIES
 DELETE http://localhost:3000/api/memory_management/memory
 
 ### DELETE MEMORY
-DELETE http://localhost:3000/api/memory_management/memory/af9b6e5d-b38b-11eb-beed-842afd1385ba
+DELETE http://localhost:3000/api/memory_management/memory/CtQzvqgrhz

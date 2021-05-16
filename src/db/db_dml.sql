@@ -2,42 +2,45 @@
 -- **** User ****
 -- Create
 INSERT INTO
-  usuario (nombre, username, correo)
+  tuser 
 VALUES
   (
-    'testingName',
-    'testingUsername',
-    'testingMail'
+    'uykME',
+    'name',
+    'password',
+    'username',
+    'mail'
   );
 -- Read users
 SELECT
   *
 FROM
-  usuario;
+  user;
 -- Read
 SELECT
   *
 FROM
-  usuario
+  user
 WHERE
-  idusuario = '3a7edfa8-b363-11eb-beed-842afd1385ba';
+  iduser = '3a7edfa8-b363-11eb-beed-842afd1385ba';
 -- Update
 UPDATE
-  usuario
+  user
 SET
-  nombre = 'testingName2',
-  username = 'testingUsername2',
-  correo = 'testingEmail2'
+  _name = 'testingName2',
+  _password = 'testingName2',
+  _username = 'testingUsername2',
+  _mail = 'testingEmail2'
 WHERE
-  idusuario = '3a7edfa8-b363-11eb-beed-842afd1385ba';
+  iduser = '3a7edfa8-b363-11eb-beed-842afd1385ba';
 -- Delete users
 DELETE FROM
-  usuario;
+  user;
 -- Delete
 DELETE FROM
-  usuario
+  user
 WHERE
-  idusuario = '3a7edfa8-b363-11eb-beed-842afd1385ba';
+  iduser = '3a7edfa8-b363-11eb-beed-842afd1385ba';
 -- ******* MEMORY MANANGEMENT *******
   -- **** Memory ****
   -- **** Partition ****

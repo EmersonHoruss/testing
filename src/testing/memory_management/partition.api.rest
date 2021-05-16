@@ -3,32 +3,32 @@ POST http://localhost:3000/api/memory_management/partition
 Content-Type: application/json
 
 {
-    "idmemoria" : "2352b556-b38c-11eb-beed-842afd1385ba",
-    "posicion"  : 1,
-    "tamanho"   : 1,
-    "ocupado"   : 1,
-    "estado"    : "estate"
+    "_idMemory" : "99FT_pokaC",
+    "_position"  : 1,
+    "_size"   : 1,
+    "_busy"   : 1,
+    "_state"    : "estate"
 }
 
 ### GET PARTITIONS
 GET http://localhost:3000/api/memory_management/partition
 
 ### GET PARTITION
-GET http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba
+GET http://localhost:3000/api/memory_management/partition/RH42CUslKAithOu
 
 ### UPDATE PARTITION
-PUT http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba
+PUT http://localhost:3000/api/memory_management/partition/RH42CUslKAithOu
 Content-Type: application/json
 
 {
-    "idmemoria" : "2352b556-b38c-11eb-beed-842afd1385ba",
-    "posicion"  : 2,
-    "tamanho"   : 2,
-    "ocupado"   : 2,
-    "estado"    : "updatedEstate"
+    "_idMemory" : "99FT_pokaC",
+    "_position"  : 2,
+    "_size"   : 2,
+    "_busy"   : 2,
+    "_state"    : "updatedEstate"
 }
 ### DELETE PARTITIONS
 DELETE http://PARTITIONShost:3000/api/memory_management/partition
 
 ### DELETE PARTITION
-DELETE http://localhost:3000/api/memory_management/partition/40412c04-b394-11eb-beed-842afd1385ba
+DELETE http://localhost:3000/api/memory_management/partition/T69tDMA4c0oQ93Z

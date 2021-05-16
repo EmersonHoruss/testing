@@ -1,49 +1,54 @@
 const PartitionCtrl = {};
 const pool = require("../../db");
+const { nanoid } = require("nanoid");
 
 PartitionCtrl.createPartition = async (req, res) => {
-  const { idmemoria, posicion, tamanho, ocupado, estado } = req.body;
+  const { _idMemory, _position, _size, _busy, _state } = req.body;
   const partition = {
-    idmemoria,
-    posicion,
-    tamanho,
-    ocupado,
-    estado,
+    _id:'',
+    _idMemory,
+    _position,
+    _size,
+    _busy,
+    _state,
   };
-  
-  partition.posicion = parseInt(partition.posicion) 
-  partition.tamanho = parseInt(partition.tamanho) 
-  partition.ocupado = parseInt(partition.ocupado) 
-
-  await pool.query("INSERT INTO particion set ? ", [partition]);
+  const ids = JSON.parse(
+    JSON.stringify(await pool.query("SELECT _id FROM TPARTITION"))
+  );
+  if(ids){
+    do {
+      partition._id = nanoid(15);
+    } while (ids.find(e => e._id===partition._id));
+  }else{
+    partition._id = nanoid(15);
+  }
+  await pool.query("INSERT INTO TPARTITION set ? ", [partition]);
   res.send("partition created successfully");
 };
 
 PartitionCtrl.readPartitions = async (req, res) => {
-  partitions = await pool.query("SELECT * FROM particion");
+  partitions = await pool.query("SELECT * FROM TPARTITION");
   res.status(200).json(partitions);
 };
 
 PartitionCtrl.readPartition = async (req, res) => {
   const { id } = req.params;
-  partition = await pool.query("SELECT * FROM particion WHERE idparticion = ?", [id]);
+  partition = await pool.query("SELECT * FROM TPARTITION WHERE _id = ?", [id]);
   res.status(200).json(partition);
 };
 
 PartitionCtrl.updatePartition = async (req, res) => {
   const { id } = req.params;
-  const { idmemoria, posicion, tamanho, ocupado, estado } = req.body;
+  const { _idMemory, _position, _size, _busy, _state } = req.body;
   const updatedPartition = {
-    idmemoria,
-    posicion,
-    tamanho,
-    ocupado,
-    estado,
+    _idMemory,
+    _position,
+    _size,
+    _busy,
+    _state,
   };
-  updatedPartition.posicion = parseInt(updatedPartition.posicion) 
-  updatedPartition.tamanho = parseInt(updatedPartition.tamanho) 
-  updatedPartition.ocupado = parseInt(updatedPartition.ocupado)
-  const user = await pool.query("UPDATE particion set ? WHERE idparticion = ?", [
+
+  const parition = await pool.query("UPDATE TPARTITION set ? WHERE _id = ?", [
     updatedPartition,
     id,
   ]);
@@ -56,7 +61,7 @@ PartitionCtrl.deletePartitions = async (req, res) => {
 
 PartitionCtrl.deletePartition = async (req, res) => {
   const { id } = req.params;
-  const user = await pool.query("DELETE FROM particion WHERE idparticion = ?", [
+  const parition = await pool.query("DELETE FROM TPARTITION WHERE _id = ?", [
     id,
   ]);
   res.send("partition deleted successfully");
