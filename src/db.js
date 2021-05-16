@@ -19,7 +19,7 @@ const { promisify } = require("util");
 
 const { database, localDatabase } = require("./keys");
 
-const pool = mysql.createPool(localDatabase);
+const pool = mysql.createPool(database);
 
 pool.getConnection((err, connection) => {
   if (err) {
